@@ -11,7 +11,7 @@ export function About() {
   return (
     <section id="about" className="scroll-mt-28 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionTitle id="about-title" subtitle="About Me" title="About Me" />
+        <SectionTitle id="about-title" subtitle="About Me" title="Who I am" />
         <motion.div
           className="mx-auto max-w-3xl"
           initial={{ opacity: 0, y: 32 }}
