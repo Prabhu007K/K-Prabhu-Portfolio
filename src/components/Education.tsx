@@ -34,7 +34,7 @@ export function Education() {
             >
               <div className="hidden w-1/2 md:block" />
               <div
-                className={`z-10 flex w-full flex-col rounded-2xl border border-white/10 bg-surface-elevated/50 p-6 md:w-[calc(50%-2rem)] ${
+                className={`z-10 flex w-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm md:w-[calc(50%-2rem)] ${
                   i % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto"
                 }`}
               >
@@ -46,14 +46,14 @@ export function Education() {
                   <HiAcademicCap size={22} />
                   <span className="text-sm font-medium">{item.period}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white">{item.degree}</h3>
+                <h3 className="text-lg font-bold text-foreground">{item.degree}</h3>
                 {"field" in item && item.field && (
-                  <p className="text-zinc-400">{item.field}</p>
+                  <p className="text-zinc-600">{item.field}</p>
                 )}
                 <p className="mt-1 text-accent/90">{item.institution}</p>
                 <p className="mt-2 text-sm text-zinc-500">{item.detail}</p>
               </div>
-              <div className="absolute left-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-surface md:left-1/2">
+              <div className="absolute left-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-2 border-accent bg-white md:left-1/2">
                 <span className="text-sm font-bold text-accent">{i + 1}</span>
               </div>
             </motion.article>

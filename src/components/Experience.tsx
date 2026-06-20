@@ -19,7 +19,7 @@ export function Experience() {
           {portfolio.experience.map((job, i) => (
             <motion.div
               key={job.company + job.role}
-              className="rounded-2xl border border-white/10 bg-surface-elevated/50 p-6 transition hover:border-accent/40"
+              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-accent/40"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -31,17 +31,17 @@ export function Experience() {
                     <HiBriefcase size={22} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-bold text-foreground">
                       {job.company}
                     </h3>
                     <p className="text-accent">{job.role}</p>
                   </div>
                 </div>
-                <span className="rounded-full bg-white/5 px-3 py-1 text-sm text-zinc-400">
+                <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-600">
                   {job.period}
                 </span>
               </div>
-              <p className="mt-4 text-zinc-400">{job.description}</p>
+              <p className="mt-4 text-zinc-600">{job.description}</p>
             </motion.div>
           ))}
         </div>

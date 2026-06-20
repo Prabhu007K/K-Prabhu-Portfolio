@@ -10,14 +10,14 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      className={`mode-toggle relative flex rounded-full border border-white/15 bg-surface-elevated/80 p-1 backdrop-blur-sm ${
+      className={`mode-toggle relative flex rounded-full border border-zinc-200 bg-zinc-100 p-1 ${
         compact ? "w-full" : ""
       }`}
       role="group"
       aria-label="Portfolio mode"
     >
       <motion.div
-        className="mode-toggle-thumb absolute top-1 bottom-1 rounded-full bg-accent shadow-md shadow-accent/30"
+        className="mode-toggle-thumb absolute top-1 bottom-1 rounded-full bg-accent shadow-sm"
         layout
         transition={{ type: "spring", stiffness: 420, damping: 32 }}
         style={{
@@ -29,7 +29,7 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
         type="button"
         onClick={() => setMode("developer")}
         className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
-          isDev ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+          isDev ? "text-white" : "text-zinc-600 hover:text-foreground"
         }`}
         aria-pressed={isDev}
       >
@@ -41,7 +41,7 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
         type="button"
         onClick={() => setMode("security")}
         className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
-          !isDev ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+          !isDev ? "text-white" : "text-zinc-600 hover:text-foreground"
         }`}
         aria-pressed={!isDev}
       >

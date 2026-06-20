@@ -12,14 +12,14 @@ function CertImage({ src, alt }: { src: string; alt: string }) {
 
   if (failed) {
     return (
-      <div className="flex h-36 items-center justify-center rounded-xl border border-white/10 bg-accent/10">
+      <div className="flex h-36 items-center justify-center rounded-xl border border-zinc-200 bg-accent/5">
         <HiBadgeCheck className="text-5xl text-accent" />
       </div>
     );
   }
 
   return (
-    <div className="relative h-36 overflow-hidden rounded-xl border border-white/10 bg-surface">
+    <div className="relative h-36 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50">
       <Image
         src={src}
         alt={alt}
@@ -37,16 +37,12 @@ export function Certifications() {
   return (
     <section id="certifications" className="scroll-mt-28 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionTitle
-          id="certifications-title"
-          subtitle="Credentials"
-          title="Certifications"
-        />
+        <SectionTitle id="certifications-title" title="Certifications" />
         <div className="grid gap-6 sm:grid-cols-2">
           {portfolio.certifications.map((cert, i) => (
             <motion.article
               key={cert.title}
-              className="group relative flex flex-col gap-4 rounded-2xl border border-white/10 bg-surface-elevated/50 p-6 hover:z-20"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:z-20"
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -72,8 +68,8 @@ export function Certifications() {
                   <HiBadgeCheck className="shrink-0 text-4xl text-accent" />
                 )}
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-lg font-bold text-white">{cert.title}</h3>
-                  <p className="text-zinc-400">{cert.issuer}</p>
+                  <h3 className="text-lg font-bold text-foreground">{cert.title}</h3>
+                  <p className="text-zinc-600">{cert.issuer}</p>
                   <p className="mt-1 text-sm font-medium text-accent">
                     {cert.date}
                   </p>

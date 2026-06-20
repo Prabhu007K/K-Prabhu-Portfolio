@@ -18,7 +18,7 @@ export function ParticleBackground() {
       {Array.from({ length: 40 }).map((_, i) => (
         <span
           key={i}
-          className="particle absolute rounded-full bg-white/20"
+          className="particle absolute rounded-full bg-zinc-300/60"
           style={{
             width: `${2 + (i % 3)}px`,
             height: `${2 + (i % 3)}px`,

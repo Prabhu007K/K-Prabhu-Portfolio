@@ -17,11 +17,14 @@ import {
   SiTypescript,
   SiWireshark,
 } from "react-icons/si";
-import { FaLock, FaNetworkWired } from "react-icons/fa";
+import { FaNetworkWired } from "react-icons/fa";
 import { HiShieldCheck } from "react-icons/hi";
 import { SectionTitle } from "./SectionTitle";
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties; className?: string }>> = {
+const iconMap: Record<
+  string,
+  React.ComponentType<{ size?: number; style?: React.CSSProperties; className?: string }>
+> = {
   html: SiHtml5,
   css: SiCss,
   javascript: SiJavascript,
@@ -36,7 +39,6 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; style?: React
   wireshark: SiWireshark,
   burp: HiShieldCheck,
   kali: SiKalilinux,
-  crypto: FaLock,
 };
 
 const colorMap: Record<string, string> = {
@@ -45,7 +47,7 @@ const colorMap: Record<string, string> = {
   javascript: "#F7DF1E",
   typescript: "#3178C6",
   react: "#61DAFB",
-  nextjs: "#ffffff",
+  nextjs: "#18181b",
   nodejs: "#339933",
   git: "#F05032",
   linux: "#FCC624",
@@ -54,7 +56,6 @@ const colorMap: Record<string, string> = {
   wireshark: "#1679A7",
   burp: "#ff6633",
   kali: "#557CFF",
-  crypto: "#ef4444",
 };
 
 const WHEEL_SIZE = 380;
@@ -87,27 +88,22 @@ export function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {/* Decorative ring */}
           <div
             className="pointer-events-none absolute inset-4 rounded-full border border-dashed border-accent/25"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-12 rounded-full border border-white/5"
+            className="pointer-events-none absolute inset-12 rounded-full border border-zinc-200"
             aria-hidden
           />
 
-          {/* Center hub */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-accent/30 bg-surface-elevated/90 shadow-[0_0_40px_-8px_rgba(124,58,237,0.5)] backdrop-blur-sm">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-accent/30 bg-white shadow-md">
             <span className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Skills
             </span>
-            <span className="mt-0.5 text-2xl font-bold text-accent">
-              {count}
-            </span>
+            <span className="mt-0.5 text-2xl font-bold text-accent">{count}</span>
           </div>
 
-          {/* Rotating wheel */}
           <div
             className={`skills-wheel absolute inset-0 ${isPaused ? "skills-wheel-paused" : ""}`}
           >
@@ -132,51 +128,49 @@ export function Skills() {
                     className={`skill-wheel-counter absolute left-0 top-0 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center ${isPaused ? "skills-wheel-paused" : ""}`}
                   >
                     <div style={{ transform: `rotate(${-angle}deg)` }}>
-                    <motion.button
-                      type="button"
-                      className="relative flex cursor-pointer items-center justify-center rounded-full border-2 bg-surface-elevated/95 shadow-lg outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                      style={{
-                        borderColor: isHovered
-                          ? color
-                          : "rgba(255,255,255,0.12)",
-                        boxShadow: isHovered
-                          ? `0 0 32px -4px ${color}88, 0 12px 28px -8px rgba(0,0,0,0.5)`
-                          : undefined,
-                        zIndex: isHovered ? 30 : 10,
-                      }}
-                      onMouseEnter={() => setHoveredIndex(i)}
-                      onMouseLeave={() => setHoveredIndex(null)}
-                      onFocus={() => setHoveredIndex(i)}
-                      onBlur={() => setHoveredIndex(null)}
-                      animate={{
-                        width: size,
-                        height: size,
-                        scale: isHovered ? 1 : 0.95,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 320,
-                        damping: 22,
-                      }}
-                      aria-label={skill.name}
-                    >
-                    <Icon
-                        size={isHovered ? 40 : 28}
-                        style={{ color }}
-                        className="transition-all duration-300"
-                      />
-                      <motion.span
-                        className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-white"
-                        initial={false}
-                        animate={{
-                          opacity: isHovered ? 1 : 0,
-                          y: isHovered ? 0 : 4,
+                      <motion.button
+                        type="button"
+                        className="relative flex cursor-pointer items-center justify-center rounded-full border-2 bg-white shadow-md outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        style={{
+                          borderColor: isHovered ? color : "rgba(0,0,0,0.08)",
+                          boxShadow: isHovered
+                            ? `0 0 32px -4px ${color}88, 0 12px 28px -8px rgba(0,0,0,0.15)`
+                            : undefined,
+                          zIndex: isHovered ? 30 : 10,
                         }}
-                        transition={{ duration: 0.2 }}
+                        onMouseEnter={() => setHoveredIndex(i)}
+                        onMouseLeave={() => setHoveredIndex(null)}
+                        onFocus={() => setHoveredIndex(i)}
+                        onBlur={() => setHoveredIndex(null)}
+                        animate={{
+                          width: size,
+                          height: size,
+                          scale: isHovered ? 1 : 0.95,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 320,
+                          damping: 22,
+                        }}
+                        aria-label={skill.name}
                       >
-                        {skill.name}
-                      </motion.span>
-                    </motion.button>
+                        <Icon
+                          size={isHovered ? 40 : 28}
+                          style={{ color }}
+                          className="transition-all duration-300"
+                        />
+                        <motion.span
+                          className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-semibold text-foreground"
+                          initial={false}
+                          animate={{
+                            opacity: isHovered ? 1 : 0,
+                            y: isHovered ? 0 : 4,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {skill.name}
+                        </motion.span>
+                      </motion.button>
                     </div>
                   </div>
                 </div>
@@ -184,10 +178,6 @@ export function Skills() {
             })}
           </div>
         </motion.div>
-
-        <p className="mt-8 text-center text-sm text-zinc-500">
-          Hover a skill to expand — wheel pauses while you explore
-        </p>
       </div>
     </section>
   );

@@ -13,16 +13,12 @@ export function Projects() {
   return (
     <section id="projects" className="scroll-mt-28 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionTitle
-          id="projects-title"
-          subtitle="Portfolio"
-          title="Projects Made"
-        />
+        <SectionTitle id="projects-title" title="Portfolio Projects Made" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {portfolio.projects.map((project, i) => (
             <motion.article
               key={project.title}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface-elevated/50 transition-[border-color,box-shadow] duration-300 hover:border-accent/50 hover:shadow-[0_0_0_1px_rgba(124,58,237,0.35),0_16px_40px_-16px_rgba(124,58,237,0.35)]"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-accent/50 hover:shadow-md"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -41,21 +37,21 @@ export function Projects() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-top transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-elevated via-surface-elevated/20 to-transparent" />
-                <h3 className="absolute bottom-4 left-4 right-4 text-lg font-bold text-white drop-shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+                <h3 className="absolute bottom-4 left-4 right-4 text-lg font-bold text-foreground drop-shadow-sm">
                   {project.title}
                 </h3>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <p className="flex-1 text-sm leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-300">
+                <p className="flex-1 text-sm leading-relaxed text-zinc-600 transition-colors duration-300 group-hover:text-zinc-700">
                   {project.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white/5 px-3 py-1 text-xs text-zinc-400 transition-colors duration-300 group-hover:bg-accent/20 group-hover:text-accent"
+                      className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600 transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent"
                     >
                       {tag}
                     </span>
@@ -71,7 +67,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                     aria-label={`Open ${project.title} live site`}
                     title="Live demo"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-accent transition hover:scale-110 hover:border-accent hover:bg-accent/15 hover:shadow-[0_0_20px_-4px_var(--glow)]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-accent transition hover:scale-110 hover:border-accent hover:bg-accent/10"
                   >
                     <HiGlobeAlt size={20} />
                   </a>
@@ -81,7 +77,7 @@ export function Projects() {
                     rel="noopener noreferrer"
                     aria-label={`Open ${project.title} on GitHub`}
                     title="GitHub repository"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:scale-110 hover:border-white/30 hover:bg-white/10 hover:text-white"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-zinc-50 text-zinc-700 transition hover:scale-110 hover:border-zinc-400 hover:bg-zinc-100"
                   >
                     <FaGithub size={18} />
                   </a>

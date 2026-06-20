@@ -61,7 +61,7 @@ export function Typewriter({
 
   return (
     <span className="inline-block min-h-[1.5em]">
-      <span className="text-zinc-400">{prefix}</span>
+      <span className="text-zinc-600">{prefix}</span>
       <span className="text-accent font-semibold">{text}</span>
       <span className="ml-0.5 inline-block h-[1.1em] w-[2px] animate-pulse bg-accent align-middle" />
     </span>

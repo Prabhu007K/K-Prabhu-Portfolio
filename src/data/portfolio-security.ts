@@ -36,7 +36,6 @@ export const securityPortfolio: PortfolioData = {
     { name: "Wireshark", icon: "wireshark" },
     { name: "Burp Suite", icon: "burp" },
     { name: "Kali Linux", icon: "kali" },
-    { name: "Cryptography", icon: "crypto" },
     { name: "Git", icon: "git" },
   ],
   education: [...sharedEducation],

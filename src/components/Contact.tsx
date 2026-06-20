@@ -87,13 +87,13 @@ export function Contact() {
         />
         <motion.form
           onSubmit={handleSubmit}
-          className="mx-auto max-w-xl space-y-4 rounded-2xl border border-white/10 bg-surface-elevated/50 p-8"
+          className="mx-auto max-w-xl space-y-4 rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <div>
-            <label htmlFor="name" className="mb-1 block text-sm text-zinc-400">
+            <label htmlFor="name" className="mb-1 block text-sm text-zinc-600">
               Name
             </label>
             <input
@@ -101,12 +101,12 @@ export function Contact() {
               name="name"
               required
               disabled={status === "sending"}
-              className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-accent disabled:opacity-60"
+              className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-foreground outline-none transition focus:border-accent disabled:opacity-60"
               placeholder="Your name"
             />
           </div>
           <div>
-            <label htmlFor="email" className="mb-1 block text-sm text-zinc-400">
+            <label htmlFor="email" className="mb-1 block text-sm text-zinc-600">
               Email
             </label>
             <input
@@ -115,14 +115,14 @@ export function Contact() {
               type="email"
               required
               disabled={status === "sending"}
-              className="w-full rounded-lg border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-accent disabled:opacity-60"
+              className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-foreground outline-none transition focus:border-accent disabled:opacity-60"
               placeholder="you@email.com"
             />
           </div>
           <div>
             <label
               htmlFor="message"
-              className="mb-1 block text-sm text-zinc-400"
+              className="mb-1 block text-sm text-zinc-600"
             >
               Message
             </label>
@@ -132,7 +132,7 @@ export function Contact() {
               required
               rows={5}
               disabled={status === "sending"}
-              className="w-full resize-none rounded-lg border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-accent disabled:opacity-60"
+              className="w-full resize-none rounded-lg border border-zinc-200 bg-white px-4 py-3 text-foreground outline-none transition focus:border-accent disabled:opacity-60"
               placeholder="Your message..."
             />
           </div>
@@ -153,6 +153,16 @@ export function Contact() {
             </p>
           )}
         </motion.form>
+
+        <p className="mx-auto mt-6 max-w-xl text-center text-sm text-zinc-600">
+          Or reach me directly at{" "}
+          <a
+            href={`tel:${portfolio.phoneTel}`}
+            className="font-semibold text-accent transition hover:underline"
+          >
+            {portfolio.phone}
+          </a>
+        </p>
       </div>
     </section>
   );

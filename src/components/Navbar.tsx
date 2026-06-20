@@ -45,15 +45,15 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-background/90 shadow-lg backdrop-blur-md"
-          : "bg-transparent"
+          ? "border-b border-zinc-200 bg-white/95 shadow-sm backdrop-blur-md"
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="shrink-0 text-lg font-bold text-white transition hover:text-accent"
+          className="shrink-0 text-lg font-bold text-foreground transition hover:text-accent"
         >
           {portfolio.shortName}
           <span className="text-accent">.</span>
@@ -72,7 +72,7 @@ export function Navbar() {
                 className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
                   active === link.id
                     ? "text-accent"
-                    : "text-zinc-400 hover:text-white"
+                    : "text-zinc-600 hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -83,7 +83,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="rounded-lg p-2 text-white lg:hidden"
+          className="rounded-lg p-2 text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -97,7 +97,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-white/10 bg-background/95 lg:hidden"
+            className="border-t border-zinc-200 bg-white lg:hidden"
           >
             <div className="px-4 py-4">
               <ModeToggle compact />
@@ -109,7 +109,7 @@ export function Navbar() {
                     type="button"
                     onClick={() => scrollTo(link.id)}
                     className={`block w-full rounded-lg px-3 py-3 text-left text-sm font-medium ${
-                      active === link.id ? "text-accent" : "text-zinc-300"
+                      active === link.id ? "text-accent" : "text-zinc-700"
                     }`}
                   >
                     {link.label}

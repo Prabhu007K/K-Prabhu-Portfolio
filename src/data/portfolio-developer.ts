@@ -23,7 +23,6 @@ export const developerPortfolio: PortfolioData = {
   ],
   about: {
     paragraphs: [
-      "I engineer dynamic, full-stack web solutions using React, Node.js, and Java. From designing role-based user interfaces to architecting efficient database systems, my passion lies in turning intricate requirements into seamless digital experiences.",
       "During my MERN Full Stack internship at Ethnus Virtual, I built a job portal with JWT authentication, RESTful APIs, and MongoDB—improving responsiveness by 30% and engagement by 20%.",
       "I've deployed 5+ projects including Chittoor Travels (map-based booking), Achar House & PageTurn e-commerce stores, a Kanban task dashboard, and an OPG dental X-ray detection app on Hugging Face using YOLOv8, Flask, and Streamlit-style workflows.",
       "I work with HTML, CSS, JavaScript, React, Next.js, Node.js, Flask, and deploy to Netlify, Render, Hugging Face, and Vercel.",

@@ -10,10 +10,10 @@ export function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <footer className="border-t border-white/10 bg-surface py-12">
+    <footer className="border-t border-zinc-200 bg-surface py-12">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-3">
         <div>
-          <h3 className="text-lg font-bold text-white">
+          <h3 className="text-lg font-bold text-foreground">
             {portfolio.name}&apos;s Portfolio
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-zinc-500">
@@ -42,8 +42,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold text-white">Quick links</h4>
-          <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-zinc-400">
+          <h4 className="font-semibold text-foreground">Quick links</h4>
+          <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-zinc-600">
             {portfolio.navLinks.slice(0, 6).map((link) => (
               <li key={link.id}>
                 <button
@@ -51,7 +51,7 @@ export function Footer() {
                   onClick={() => scrollTo(link.id)}
                   className="transition hover:text-accent"
                 >
-                  {link.label.toLowerCase()}
+                  {link.label}
                 </button>
               </li>
             ))}
@@ -59,8 +59,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold text-white">Contact info</h4>
-          <ul className="mt-3 space-y-2 text-sm text-zinc-400">
+          <h4 className="font-semibold text-foreground">Contact info</h4>
+          <ul className="mt-3 space-y-2 text-sm text-zinc-600">
             <li>
               <a
                 href={`tel:${portfolio.phoneTel}`}
