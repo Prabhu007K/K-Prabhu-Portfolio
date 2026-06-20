@@ -5,16 +5,20 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   SiCss,
+  SiEclipseide,
   SiGit,
   SiHtml5,
+  SiIntellijidea,
   SiJavascript,
   SiKalilinux,
   SiLinux,
+  SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
   SiPython,
   SiReact,
   SiTypescript,
+  SiVercel,
   SiWireshark,
 } from "react-icons/si";
 import { FaNetworkWired } from "react-icons/fa";
@@ -39,6 +43,10 @@ const iconMap: Record<
   wireshark: SiWireshark,
   burp: HiShieldCheck,
   kali: SiKalilinux,
+  vercel: SiVercel,
+  netlify: SiNetlify,
+  eclipse: SiEclipseide,
+  intellij: SiIntellijidea,
 };
 
 const colorMap: Record<string, string> = {
@@ -56,6 +64,10 @@ const colorMap: Record<string, string> = {
   wireshark: "#1679A7",
   burp: "#ff6633",
   kali: "#557CFF",
+  vercel: "#18181b",
+  netlify: "#00C7B7",
+  eclipse: "#2C2255",
+  intellij: "#18181b",
 };
 
 const WHEEL_SIZE = 380;
