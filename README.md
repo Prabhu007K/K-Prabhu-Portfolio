@@ -35,6 +35,7 @@ Create a **new empty repository** on GitHub, then upload **only** these files an
 | `.env.example` | Example env vars (no secrets) |
 | `README.md` | This file |
 | `DEPLOY.md` | Vercel deploy steps |
+| `description.txt` | Short repo description for GitHub |
 | `LICENSE` | MIT license |
 
 ### Do not upload
