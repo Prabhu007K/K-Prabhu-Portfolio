@@ -37,6 +37,10 @@ export const developerPortfolio: PortfolioData = {
     { name: "Next.js", icon: "nextjs" },
     { name: "Node.js", icon: "nodejs" },
     { name: "Git", icon: "git" },
+    { name: "Vercel", icon: "vercel" },
+    { name: "Netlify", icon: "netlify" },
+    { name: "Eclipse", icon: "eclipse" },
+    { name: "IntelliJ", icon: "intellij" },
   ],
   education: [...sharedEducation],
   projects: [

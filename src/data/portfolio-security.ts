@@ -37,6 +37,10 @@ export const securityPortfolio: PortfolioData = {
     { name: "Burp Suite", icon: "burp" },
     { name: "Kali Linux", icon: "kali" },
     { name: "Git", icon: "git" },
+    { name: "Vercel", icon: "vercel" },
+    { name: "Netlify", icon: "netlify" },
+    { name: "Eclipse", icon: "eclipse" },
+    { name: "IntelliJ", icon: "intellij" },
   ],
   education: [...sharedEducation],
   projects: [
