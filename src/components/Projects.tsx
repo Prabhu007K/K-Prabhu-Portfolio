@@ -13,7 +13,7 @@ export function Projects() {
   return (
     <section id="projects" className="scroll-mt-28 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionTitle id="projects-title" title="Portfolio Projects Made" />
+        <SectionTitle id="projects-title" title="Projects Made" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {portfolio.projects.map((project, i) => (
             <motion.article
