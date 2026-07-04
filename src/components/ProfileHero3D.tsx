@@ -47,14 +47,14 @@ export function ProfileHero3D() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-4 sm:gap-6">
       <div
         ref={ref}
-        className="hero-3d-scene relative mx-auto w-full max-w-sm lg:max-w-md"
+        className="hero-3d-scene relative mx-auto w-full max-w-[240px] sm:max-w-sm lg:max-w-md"
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
       >
-        <div className="hero-3d-aura pointer-events-none absolute -inset-6 rounded-[2rem] bg-accent/15 blur-3xl" />
+        <div className="hero-3d-aura pointer-events-none absolute -inset-4 rounded-[2rem] bg-accent/15 blur-3xl sm:-inset-6" />
 
         <motion.div
           className="hero-3d-float relative"
@@ -89,7 +89,7 @@ export function ProfileHero3D() {
               alt={`${portfolio.name} — portrait`}
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 28rem"
+              sizes="(max-width: 640px) 240px, (max-width: 1024px) 24rem, 28rem"
               className="hero-3d-main relative z-10 object-cover object-[50%_22%]"
             />
 

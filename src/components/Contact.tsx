@@ -78,7 +78,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-28 py-20">
+    <section id="contact" className="scroll-mt-28 py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionTitle
           id="contact-title"
@@ -87,7 +87,7 @@ export function Contact() {
         />
         <motion.form
           onSubmit={handleSubmit}
-          className="mx-auto max-w-xl space-y-4 rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm"
+          className="mx-auto max-w-xl space-y-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm sm:p-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

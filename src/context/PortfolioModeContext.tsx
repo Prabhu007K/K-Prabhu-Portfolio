@@ -1,6 +1,11 @@
 "use client";
 
 import { getPortfolio } from "@/data/portfolio";
+import {
+  modeHref,
+  parseModeParam,
+  syncModeToUrl,
+} from "@/lib/portfolio-mode";
 import type { PortfolioData, PortfolioMode } from "@/types/portfolio";
 import {
   createContext,
@@ -17,6 +22,7 @@ type PortfolioModeContextValue = {
   isSecurity: boolean;
   setMode: (mode: PortfolioMode) => void;
   toggleMode: () => void;
+  modeHref: (mode: PortfolioMode) => string;
 };
 
 const PortfolioModeContext = createContext<PortfolioModeContextValue | null>(
@@ -31,18 +37,39 @@ export function PortfolioModeProvider({
   children: React.ReactNode;
 }) {
   const [mode, setModeState] = useState<PortfolioMode>("developer");
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "developer" || saved === "security") {
-      setModeState(saved);
+    const fromUrl = parseModeParam(window.location.search);
+    if (fromUrl) {
+      setModeState(fromUrl);
+    } else {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "developer" || saved === "security") {
+        setModeState(saved);
+        syncModeToUrl(saved);
+      } else {
+        syncModeToUrl("developer");
+      }
     }
+    setReady(true);
   }, []);
 
   useEffect(() => {
+    if (!ready) return;
     document.documentElement.setAttribute("data-mode", mode);
     localStorage.setItem(STORAGE_KEY, mode);
-  }, [mode]);
+    syncModeToUrl(mode);
+  }, [mode, ready]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const fromUrl = parseModeParam(window.location.search);
+      if (fromUrl) setModeState(fromUrl);
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
 
   const setMode = useCallback((next: PortfolioMode) => {
     setModeState(next);
@@ -61,6 +88,7 @@ export function PortfolioModeProvider({
       isSecurity: mode === "security",
       setMode,
       toggleMode,
+      modeHref,
     }),
     [mode, setMode, toggleMode],
   );

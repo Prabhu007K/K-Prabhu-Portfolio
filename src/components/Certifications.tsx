@@ -35,14 +35,14 @@ function CertImage({ src, alt }: { src: string; alt: string }) {
 export function Certifications() {
   const { portfolio } = usePortfolio();
   return (
-    <section id="certifications" className="scroll-mt-28 py-20">
+    <section id="certifications" className="scroll-mt-28 py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionTitle id="certifications-title" title="Certifications" />
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           {portfolio.certifications.map((cert, i) => (
             <motion.article
               key={cert.title}
-              className="group relative flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:z-20"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm hover:z-20 sm:p-6"
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -53,8 +53,8 @@ export function Certifications() {
                 damping: 22,
               }}
               whileHover={{
-                scale: 1.03,
-                y: -6,
+                scale: 1.02,
+                y: -4,
                 borderColor: "rgba(124, 58, 237, 0.55)",
                 boxShadow:
                   "0 20px 50px -12px rgba(124, 58, 237, 0.35), 0 8px 24px -8px rgba(0, 0, 0, 0.5)",
@@ -68,8 +68,12 @@ export function Certifications() {
                   <HiBadgeCheck className="shrink-0 text-4xl text-accent" />
                 )}
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-lg font-bold text-foreground">{cert.title}</h3>
-                  <p className="text-zinc-600">{cert.issuer}</p>
+                  <h3 className="text-base font-bold text-foreground sm:text-lg">
+                    {cert.title}
+                  </h3>
+                  <p className="break-words text-sm text-zinc-600 sm:text-base">
+                    {cert.issuer}
+                  </p>
                   <p className="mt-1 text-sm font-medium text-accent">
                     {cert.date}
                   </p>

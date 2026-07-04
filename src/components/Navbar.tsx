@@ -19,6 +19,21 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
     const sections = portfolio.navLinks.map((l) =>
       document.getElementById(l.id),
     );
@@ -49,27 +64,27 @@ export function Navbar() {
           : "bg-white/80 backdrop-blur-sm"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4">
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="shrink-0 text-lg font-bold text-foreground transition hover:text-accent"
+          className="shrink-0 text-base font-bold text-foreground transition hover:text-accent sm:text-lg"
         >
           {portfolio.shortName}
           <span className="text-accent">.</span>
         </button>
 
-        <div className="hidden md:block">
+        <div className="hidden min-w-0 md:block md:max-w-[220px] lg:max-w-none">
           <ModeToggle />
         </div>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {portfolio.navLinks.map((link) => (
             <li key={link.id}>
               <button
                 type="button"
                 onClick={() => scrollTo(link.id)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition ${
+                className={`rounded-lg px-2 py-2 text-sm font-medium transition xl:px-3 ${
                   active === link.id
                     ? "text-accent"
                     : "text-zinc-600 hover:text-foreground"
@@ -86,6 +101,7 @@ export function Navbar() {
           className="rounded-lg p-2 text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
@@ -97,7 +113,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-zinc-200 bg-white lg:hidden"
+            className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-zinc-200 bg-white lg:hidden"
           >
             <div className="px-4 py-4">
               <ModeToggle compact />
@@ -109,7 +125,9 @@ export function Navbar() {
                     type="button"
                     onClick={() => scrollTo(link.id)}
                     className={`block w-full rounded-lg px-3 py-3 text-left text-sm font-medium ${
-                      active === link.id ? "text-accent" : "text-zinc-700"
+                      active === link.id
+                        ? "bg-accent/10 text-accent"
+                        : "text-zinc-700"
                     }`}
                   >
                     {link.label}

@@ -4,15 +4,18 @@ import { useEffect, useState } from "react";
 
 type TypewriterProps = {
   words: readonly string[];
-  prefix?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseMs?: number;
 };
 
+function articleFor(word: string) {
+  const first = word.trim().charAt(0).toLowerCase();
+  return "aeiou".includes(first) ? "an" : "a";
+}
+
 export function Typewriter({
   words,
-  prefix = "I am ",
   typingSpeed = 100,
   deletingSpeed = 50,
   pauseMs = 2000,
@@ -20,6 +23,9 @@ export function Typewriter({
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const currentWord = words[wordIndex] ?? "";
+  const prefix = `I am ${articleFor(currentWord)} `;
 
   useEffect(() => {
     const current = words[wordIndex] ?? "";
@@ -60,9 +66,9 @@ export function Typewriter({
   ]);
 
   return (
-    <span className="inline-block min-h-[1.5em]">
+    <span className="inline-block min-h-[1.5em] max-w-full break-words">
       <span className="text-zinc-600">{prefix}</span>
-      <span className="text-accent font-semibold">{text}</span>
+      <span className="font-semibold text-accent">{text}</span>
       <span className="ml-0.5 inline-block h-[1.1em] w-[2px] animate-pulse bg-accent align-middle" />
     </span>
   );

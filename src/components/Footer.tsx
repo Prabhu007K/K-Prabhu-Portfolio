@@ -10,8 +10,8 @@ export function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <footer className="border-t border-zinc-200 bg-surface py-12">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-3">
+    <footer className="border-t border-zinc-200 bg-surface py-10 sm:py-12">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:gap-10 sm:px-6 md:grid-cols-3">
         <div>
           <h3 className="text-lg font-bold text-foreground">
             {portfolio.name}&apos;s Portfolio
@@ -72,7 +72,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${portfolio.email}`}
-                className="transition hover:text-accent"
+                className="break-all transition hover:text-accent"
               >
                 {portfolio.email}
               </a>

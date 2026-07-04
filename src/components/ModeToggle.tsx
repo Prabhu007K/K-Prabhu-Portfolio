@@ -4,8 +4,40 @@ import { usePortfolio } from "@/context/PortfolioModeContext";
 import { motion } from "framer-motion";
 import { HiCode, HiShieldCheck } from "react-icons/hi";
 
+function ModeLink({
+  href,
+  active,
+  onSelect,
+  children,
+}: {
+  href: string;
+  active: boolean;
+  onSelect: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      onClick={(e) => {
+        // Let browser handle new tab / new window / modified clicks
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+          return;
+        }
+        e.preventDefault();
+        onSelect();
+      }}
+      aria-current={active ? "page" : undefined}
+      className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-2 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
+        active ? "text-white" : "text-zinc-600 hover:text-foreground"
+      }`}
+    >
+      {children}
+    </a>
+  );
+}
+
 export function ModeToggle({ compact = false }: { compact?: boolean }) {
-  const { mode, setMode } = usePortfolio();
+  const { mode, setMode, modeHref } = usePortfolio();
   const isDev = mode === "developer";
 
   return (
@@ -25,30 +57,36 @@ export function ModeToggle({ compact = false }: { compact?: boolean }) {
           width: "calc(50% - 4px)",
         }}
       />
-      <button
-        type="button"
-        onClick={() => setMode("developer")}
-        className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
-          isDev ? "text-white" : "text-zinc-600 hover:text-foreground"
-        }`}
-        aria-pressed={isDev}
+      <ModeLink
+        href={modeHref("developer")}
+        active={isDev}
+        onSelect={() => setMode("developer")}
       >
-        <HiCode size={16} />
-        {!compact && <span className="hidden sm:inline">Developer</span>}
-        {!compact && <span className="sm:hidden">Dev</span>}
-      </button>
-      <button
-        type="button"
-        onClick={() => setMode("security")}
-        className={`relative z-10 flex flex-1 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
-          !isDev ? "text-white" : "text-zinc-600 hover:text-foreground"
-        }`}
-        aria-pressed={!isDev}
+        <HiCode size={16} className="shrink-0" />
+        {compact ? (
+          <span>Developer</span>
+        ) : (
+          <>
+            <span className="hidden sm:inline">Developer</span>
+            <span className="sm:hidden">Dev</span>
+          </>
+        )}
+      </ModeLink>
+      <ModeLink
+        href={modeHref("security")}
+        active={!isDev}
+        onSelect={() => setMode("security")}
       >
-        <HiShieldCheck size={16} />
-        {!compact && <span className="hidden sm:inline">Cyber Sec</span>}
-        {!compact && <span className="sm:hidden">Sec</span>}
-      </button>
+        <HiShieldCheck size={16} className="shrink-0" />
+        {compact ? (
+          <span>Cyber Sec</span>
+        ) : (
+          <>
+            <span className="hidden sm:inline">Cyber Sec</span>
+            <span className="sm:hidden">Sec</span>
+          </>
+        )}
+      </ModeLink>
     </div>
   );
 }

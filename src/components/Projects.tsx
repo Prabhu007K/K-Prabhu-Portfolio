@@ -11,10 +11,10 @@ export function Projects() {
   const { portfolio } = usePortfolio();
 
   return (
-    <section id="projects" className="scroll-mt-28 py-20">
+    <section id="projects" className="scroll-mt-28 py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionTitle id="projects-title" title="Projects Made" />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {portfolio.projects.map((project, i) => (
             <motion.article
               key={project.title}
@@ -43,7 +43,7 @@ export function Projects() {
                 </h3>
               </div>
 
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-4 sm:p-6">
                 <p className="flex-1 text-sm leading-relaxed text-zinc-600 transition-colors duration-300 group-hover:text-zinc-700">
                   {project.description}
                 </p>
