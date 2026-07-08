@@ -27,7 +27,7 @@ export const sharedEducation = [
     field: "Computer Science (Specialization in Cybersecurity)",
     institution: "VIT-AP University, Amaravati",
     period: "Sep 2022 – May 2026",
-    detail: "CGPA: 7.93",
+    detail: "CGPA: 7.94",
   },
   {
     degree: "Intermediate (Higher Secondary)",
