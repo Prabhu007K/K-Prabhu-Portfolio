@@ -97,7 +97,7 @@ export const developerPortfolio: PortfolioData = {
       issuer: "Google / Coursera",
       viewLink: "/certificates/Google-AI-Certificate.pdf",
       image: "/certificates/Google-AI-Certificate.jpg",
-    }
+    },
     ...sharedCertifications],
   aboutStats: [
     { label: "Projects", value: "5+ Deployed" },
