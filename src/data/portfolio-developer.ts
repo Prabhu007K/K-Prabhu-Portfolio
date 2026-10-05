@@ -10,8 +10,8 @@ export const developerPortfolio: PortfolioData = {
   mode: "developer",
   modeLabel: "Web Developer",
   ...sharedContact,
-  resumeUrl: "/K_Prabhu_RESUME_Web_Developer.pdf",
-  resumeFileName: "K_Prabhu_RESUME_Web_Developer.pdf",
+  resumeUrl: "/K_Prabhu_RESUME_AI_Web_Developer.pdf",
+  resumeFileName: "K_Prabhu_RESUME_AI_Web_Developer.pdf",
   title: "Full Stack Developer",
   tagline:
     "Full-stack developer crafting high-performance web applications. I build scalable, user-centric solutions from end to end using the MERN stack and Java.",
