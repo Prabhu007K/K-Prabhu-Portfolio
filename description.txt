@@ -1,0 +1,1 @@
+Interactive portfolio for K Prabhu — dual-mode Web Developer and Cyber Security site built with Next.js, Tailwind CSS, and Framer Motion. Includes projects, certifications, mode-specific resumes, and a Web3Forms contact form. Deployable on Vercel.
