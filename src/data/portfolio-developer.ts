@@ -91,20 +91,13 @@ export const developerPortfolio: PortfolioData = {
     },
   ],
   experience: [...sharedExperience],
-  certifications: [{
+  certifications: [// Add to your Developer Certifications list:
+    {
       title: "Google AI Professional Certificate",
       issuer: "Google / Coursera",
-      issueDate: "Sep 2026",
-      image: "/certificates/Google AI Certificate.jpg",
-      pdfUrl: "/certificates/Google AI Certificate.pdf",
-      credentialUrl: "https://coursera.org/verify/professional-cert/X173PO2P7J6S",
-      skills: [
-        "AI App Building & Deployment",
-        "Prompt Engineering",
-        "LLM Integration",
-        "Data Analysis with AI"
-      ]
-    },
+      viewLink: "/certificates/Google-AI-Certificate.pdf",
+      image: "/certificates/Google-AI-Certificate.jpg",
+    }
     ...sharedCertifications],
   aboutStats: [
     { label: "Projects", value: "5+ Deployed" },

@@ -93,20 +93,12 @@ export const securityPortfolio: PortfolioData = {
     },
   ],
   experience: [...sharedExperience],
-  certifications: [{
+  certifications: [  
+    {
       title: "Google Cybersecurity Professional Certificate",
       issuer: "Google / Coursera",
-      issueDate: "Sep 2026",
-      image: "/certificates/Google Cybersecurity Certificate.jpg",
-      pdfUrl: "/certificates/Google Cybersecurity Certificate.pdf",
-      credentialUrl: "https://coursera.org/verify/professional-cert/DOCCOU2ZB4UU",
-      skills: [
-        "SIEM Tools",
-        "Intrusion Detection Systems (IDS)",
-        "Python Automation",
-        "Linux CLI",
-        "Network Security & Threat Mitigation"
-      ]
+      viewLink: "/certificates/Google-Cybersecurity-Certificate.pdf",
+      image: "/certificates/Google-Cybersecurity-Certificate.jpg",
     },
     ...sharedCertifications],
   aboutStats: [

@@ -89,16 +89,4 @@ export const sharedCertifications = [
     viewLink: "/certificates/c-programming.pdf",
     image: "/certificates/c-programming.jpg",
   },// Add to your Security Certifications list:
-  {
-    title: "Google Cybersecurity Professional Certificate",
-    issuer: "Google / Coursera",
-    viewLink: "/certificates/Google-Cybersecurity-Certificate.pdf",
-    image: "/certificates/Google-Cybersecurity-Certificate.jpg",
-  },// Add to your Developer Certifications list:
-  {
-    title: "Google AI Professional Certificate",
-    issuer: "Google / Coursera",
-    viewLink: "/certificates/Google-AI-Certificate.pdf",
-    image: "/certificates/Google-AI-Certificate.jpg",
-  }
 ] as const;
