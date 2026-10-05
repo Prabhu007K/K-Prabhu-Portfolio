@@ -95,6 +95,7 @@ export const developerPortfolio: PortfolioData = {
     {
       title: "Google AI Professional Certificate",
       issuer: "Google / Coursera",
+      date: "Sep 2026",
       viewLink: "/certificates/Google-AI-Certificate.pdf",
       image: "/certificates/Google-AI-Certificate.jpg",
     },

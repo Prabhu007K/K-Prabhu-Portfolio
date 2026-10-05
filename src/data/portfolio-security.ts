@@ -97,6 +97,7 @@ export const securityPortfolio: PortfolioData = {
     {
       title: "Google Cybersecurity Professional Certificate",
       issuer: "Google / Coursera",
+      date: "Sep 2026",
       viewLink: "/certificates/Google-Cybersecurity-Certificate.pdf",
       image: "/certificates/Google-Cybersecurity-Certificate.jpg",
     },
